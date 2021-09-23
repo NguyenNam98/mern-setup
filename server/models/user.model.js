@@ -47,7 +47,7 @@ UserSchema.path('hashed_password')
         }
 }, null)
 
-UserSchema.method = {
+UserSchema.methods = {
     authenticate : function(plainText){
         return this.encryptPassword(plainText) === this.hashed_password
     },

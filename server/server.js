@@ -1,10 +1,10 @@
 import config from './../config/config'
 import app from './express'
 import mongoose from 'mongoose'
-
+import devBundle from './devBundle'
 import template from '../template'
-import userRoute from './routes/user.route'
-import authRoute from './routes/auth.route'
+
+
 
 mongoose.Promise = global.Promise
 
@@ -18,11 +18,11 @@ mongoose.connection.on('error', () => {
  throw new Error(`unable to connect to database: ${config.mongoUri}`)
 })
 
-app.get('/', (req , res ) =>{
-    res.status(200).send(template())
-})
-app.use('/',userRoute)
-app.use('/auth', authRoute)
+// app.get('/', (req , res ) =>{
+//     res.status(200).send(template())
+// })
+
+// app.use('/auth', authRoute)
 app.listen(config.port, (err) => {
  if (err) {
  console.log(err)
